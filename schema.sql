@@ -24,13 +24,13 @@ CREATE TABLE tipo_Despesas
 -- paga = false -> ainda não saiu dinheiro da conta (conta pendente).
 CREATE TABLE Despesas
 (
-    id              INT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     descricao       VARCHAR(100),
     valor           DECIMAL(10, 2),
     data_Vencimento DATE,
     paga            BOOLEAN,
     tipo            INT,                                      -- guarda o id do tipo, não o texto
-    PRIMARY KEY (id),
+
     FOREIGN KEY (tipo) REFERENCES tipo_Despesas (id)
 );
 
@@ -45,12 +45,12 @@ CREATE TABLE tipo_Entrada
 -- Entrada = dinheiro que entra na conta.
 CREATE TABLE Entrada
 (
-    id        INT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     descricao VARCHAR(100),
     valor     DECIMAL(10, 2),
     data      DATE,
     tipoen    INT,                                            -- guarda o id do tipo de entrada
-    PRIMARY KEY (id),
+
     FOREIGN KEY (tipoen) REFERENCES tipo_Entrada (id)
 );
 
